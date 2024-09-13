@@ -7,14 +7,21 @@ Respond to a security issue involving organizations company webstie. Identify th
 ---
 
 ### Skills Learned
+- Analyzing network layer protocols (DNS, ICMP, and UDP)
 
+- Troubleshooting network-related issues using tcpdump and packet analysis
+
+- Understanding of DNS resolution and how ICMP error messages work
+
+- Investigating common causes of DNS resolution failures
 
 
 ---
 
 ### Tools Used
 
-- 
+- tcp dump
+- ICMP and UDP packet analysis
 ---
 
 ## Scenario
