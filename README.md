@@ -42,14 +42,19 @@ The remaining lines in the log indicaasaeasete that ICMP packets were sent two m
 Now that you have captured data packets using a network analyzer tool, it is your job to identify which network protocol and service were impacted by this incident. Then, you will need to write a follow-up report. 
 
 ### Provide a summary of the problem found in the DNS and ICMP traffic log
-
-
+Upon review of the logs it is made clear that the ICMP request packets indicate that the packet was not delivered to the port 53 of the DNS server. Hence a connection was not established.
+We can see the attempted connection a total of three times over a 4 minute period which is indicated by the time stamps (13:24:32:192571 -> 13:28:50.022967)
+This is verified when continuing to read down the log and viewing the same message repeated 192.51.100.15.52444 > 203.0.113.2.domain which explains that the user IP(192.51.100.15.524444) on the left side of the greater than symbol (>) is the source address and attempting to contact 203.0.113.2.domain, the destination IP address.
+Finally the port and the protocol number when analyzed cement our findings. The port number in the error log states "udp port 53 unreachable length 150" which means that udp protocol was used to attempt a request for a domain name over port 53. With port 53 being a well known port for DNS service it is evident that the message simply did not go through the DNS server and hence the users browser was unable to obtain the IP address for yummyrecipesforme.com.
 
 ---
 ## Explain your Analysis
-drag & drop screenshots here or use imgur and reference them using imgsrc
+The incident occured around 1:24 pm
+The IT team was made aware after a customer report was given to the company about being unable to gain access to the company's website.
+The security engineers began to take a look at the webpage and read the tcp dump logs, seeing what was described above
+It is likely this incident occured because of a DOS or a firewall misconfig
 
-Every screenshot should have some text explaining what the screenshot is about.
+
 
 Example below.
 
