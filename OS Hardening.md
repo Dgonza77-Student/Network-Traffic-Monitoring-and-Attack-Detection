@@ -83,18 +83,24 @@ The logs above show our machine (your.machine.52444) attempting to, and eventual
 
 After going to google and searching for the website we see a three-way handshake occur between our machine and the websites
 
+| Time           | Source                | Destination                | Flags  | Details                                                                                      |
+|----------------|-----------------------|----------------------------|--------|----------------------------------------------------------------------------------------------|
 | 14:18:36.786501 | your.machine.36086    | yummyrecipesforme.com.http  | [S]    | seq 2873951608, win 65495, options [mss 65495,sackOK,TS val 3302576859 ecr 0,nop,wscale 7]    |
-
 | 14:18:36.786517 | yummyrecipesforme.com | your.machine.36086          | [S.]   | seq 3984334959, ack 2873951609, win 65483, options [mss 65495,sackOK,TS val 3302576859 ecr 0] |
-
 | 14:18:36.786529 | your.machine.36086    | yummyrecipesforme.com.http  | [.]    | ack 1, win 512, options [nop,nop,TS val 3302576859 ecr 3302576859]                           |
+
 
 Following this, it is made clear that we are operating on port 80, the common port used for HTTP, with the following line. Here our machine asks the website for information 
 
-| 14:18:36.786589 | your.machine.36086    | yummyrecipesforme.com.http  | [P.]   | seq 1:74, ack 1, win 512, options [nop,nop,TS val 3302576859 ecr 3302576859], length 73: HTTP GET / HTTP/1.1 |
+| Time           | Source                | Destination                | Flags  | Details                                                                                                                    |
+|----------------|-----------------------|----------------------------|--------|----------------------------------------------------------------------------------------------------------------------------|
+| 14:18:36.786589 | your.machine.36086    | yummyrecipesforme.com.http  | [P.]   | seq 1:74, ack 1, win 512, options [nop,nop,TS val 3302576859 ecr 3302576859], length 73: HTTP GET / HTTP/1.1                |
+
 
 Followed by a response from the website in which the information is sent to us
 
+| Time           | Source                | Destination                | Flags  | Details                                                                                      |
+|----------------|-----------------------|----------------------------|--------|----------------------------------------------------------------------------------------------|
 | 14:18:36.786595 | yummyrecipesforme.com | your.machine.36086          | [.]    | ack 74, win 512, options [nop,nop,TS val 3302576859 ecr 3302576859]                           |
 
 It is here we can surmize that TCP dump began to capture the packet logs as the following message occurs. Indicating that our malicious file may have been transported at this step in our process
