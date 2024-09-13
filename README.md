@@ -43,8 +43,11 @@ Now that you have captured data packets using a network analyzer tool, it is you
 
 ### Provide a summary of the problem found in the DNS and ICMP traffic log
 Upon review of the logs it is made clear that the ICMP request packets indicate that the packet was not delivered to the port 53 of the DNS server. Hence a connection was not established.
+
 We can see the attempted connection a total of three times over a 4 minute period which is indicated by the time stamps (13:24:32:192571 -> 13:28:50.022967)
+
 This is verified when continuing to read down the log and viewing the same message repeated 192.51.100.15.52444 > 203.0.113.2.domain which explains that the user IP(192.51.100.15.524444) on the left side of the greater than symbol (>) is the source address and attempting to contact 203.0.113.2.domain, the destination IP address.
+
 Finally the port and the protocol number when analyzed cement our findings. The port number in the error log states "udp port 53 unreachable length 150" which means that udp protocol was used to attempt a request for a domain name over port 53. With port 53 being a well known port for DNS service it is evident that the message simply did not go through the DNS server and hence the users browser was unable to obtain the IP address for yummyrecipesforme.com.
 
 ---
@@ -56,6 +59,4 @@ It is likely this incident occured because of a DOS or a firewall misconfig
 
 
 
-Example below.
 
-*Ref 1: Network Diagram*
