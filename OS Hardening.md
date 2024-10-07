@@ -1,4 +1,4 @@
-# Analyze Network Layer Attack- Cybersecurity Incident Report
+# Analyze Network Layer Attack
 
 ## Objective
 Document the incident in detail, including identifying the network protocols used to establish the connection between the user and the website to make a reconmendation for a course of action
